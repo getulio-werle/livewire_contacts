@@ -1,5 +1,11 @@
 <div class="card p-5">
-    <h4>Contacts</h4>
+    <div class="d-flex justify-content-between">
+        <h4>Contacts</h4>
+        <div class="d-flex align-items-center gap-2">
+            <span>Search:</span>
+            <input wire:model.live="search" type="text" class="form-control">
+        </div>
+    </div>
     <hr>
     @if ($contacts->count() == 0)
         <p class="opacity-50">No contacts to show</p>
@@ -15,10 +21,8 @@
                 </div>
             </div>        
         @endforeach
-
         <div>
             {{ $contacts->links() }}
         </div>
-        
     @endif
 </div>
