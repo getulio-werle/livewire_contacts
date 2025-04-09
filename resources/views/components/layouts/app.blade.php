@@ -8,7 +8,18 @@
         <link rel="stylesheet" href="{{ asset('assets/bootstrap/bootstrap.min.css')}}">
     </head>
     <body>
-        {{ $slot }}
+        <div class="container my-5">
+            
+            <div class="row mb-5">
+                <div class="col text-center">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo" width="128px">
+                </div>
+            </div>
+
+            {{ $slot }}
+
+        </div>
+
         <script src="{{ asset('assets/bootstrap/bootstrap.bundle.min.js')}}"></script>
     </body>
 </html>

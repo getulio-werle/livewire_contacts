@@ -35,8 +35,7 @@ class ContactForm extends Component
                 'phone' => $this->phone
             ]
         );
-
-        
+ 
         // check for success or error
         if ($result->wasRecentlyCreated) {
 
@@ -44,6 +43,9 @@ class ContactForm extends Component
             $this->reset();
 
             $this->success = 'Contact created successfully';
+
+            // dispatch a event
+            $this->dispatch('contact-created');
 
         } else {
 
