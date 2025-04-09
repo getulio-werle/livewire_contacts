@@ -5,7 +5,7 @@
         <p class="opacity-50">No contacts to show</p>
     @else
         @foreach ($contacts as $contact)
-            <div class="card bg-dark p-3 mb-3 d-flex flex-row justify-content-between align-items-center">
+            <div class="card bg-dark p-3 mb-2 d-flex flex-row justify-content-between align-items-center">
                 <p>Name: {{ $contact->name }}</p>
                 <p>Email: {{ $contact->email }}</p>
                 <p>Phone: {{ $contact->phone }}</p>
@@ -15,5 +15,10 @@
                 </div>
             </div>        
         @endforeach
+
+        <div>
+            {{ $contacts->links() }}
+        </div>
+        
     @endif
 </div>
