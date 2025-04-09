@@ -17,9 +17,6 @@ class ContactForm extends Component
     #[Validate('required|min:5|max:20')]
     public $phone;
 
-    public $success = '';
-    public $error = '';
-
     public function createContact()
     {
         // validation
@@ -38,19 +35,27 @@ class ContactForm extends Component
  
         // check for success or error
         if ($result->wasRecentlyCreated) {
-
             // clear form
             $this->reset();
 
-            $this->success = 'Contact created successfully';
+            // $this->success = 'Contact created successfully';
 
             // dispatch a event
             $this->dispatch('contact-created');
 
+            $this->dispatch(
+                'notification', 
+                type: 'success',
+                title: 'Contact created successfully',
+                position: 'center'
+            );
         } else {
-
-            $this->error = 'The contact already exists';
-
+            $this->dispatch(
+                'notification', 
+                type: 'error',
+                title: 'The contact already exists',
+                position: 'center'
+            );
         }
     }
 
